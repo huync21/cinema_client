@@ -1,6 +1,7 @@
 package com.example.cinema_client.controllers;
 
 import com.example.cinema_client.models.MovieDTO;
+import com.example.cinema_client.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -24,6 +25,7 @@ public class HomeController {
         ResponseEntity<MovieDTO[]> response = restTemplate.getForEntity(apiGetShowingMovies,MovieDTO[].class);
         MovieDTO[] movies = response.getBody();
         model.addAttribute("movies",movies);
+        model.addAttribute("user",new User());
         return "home";
     }
 }

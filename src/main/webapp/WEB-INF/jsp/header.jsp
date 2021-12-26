@@ -1,6 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="vi">
 
@@ -31,12 +32,26 @@
             </li>
         </ul>
         <div class="form-inline my-2 my-lg-0">
-            <li class="nav-item">
-                <a href="" class="btn btn-primary" data-toggle="modal" data-target="#modalLoginForm">Đăng nhập</a>
-            </li>
-            <li class="nav-item">
-                <a href="" class="btn btn-info" data-toggle="modal" data-target="#modalRegisterForm">Đăng ký</a>
-            </li>
+            <c:choose>
+                <c:when test="${sessionScope.jwtResponse eq null}">
+                    <li class="nav-item">
+                        <a href="" class="btn btn-primary" data-toggle="modal" data-target="#modalLoginForm">Đăng nhập</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="btn btn-info" data-toggle="modal" data-target="#modalRegisterForm">Đăng ký</a>
+                    </li>
+                </c:when>
+                <c:otherwise>
+                    <li class="nav-item">
+                        <a style="color: gold">${sessionScope.jwtResponse.name}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="account/sign-out" class="btn btn-danger">Đăng xuất</a>
+                    </li>
+                </c:otherwise>
+            </c:choose>
+
+
         </div>
     </div>
 </nav>
@@ -46,29 +61,31 @@
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header text-center">
-                <h4 class="modal-title w-100 font-weight-bold">Đăng nhập</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body mx-3">
-                <div class="md-form mb-5">
-                    <i class="fas fa-envelope prefix grey-text"></i>
-                    <input type="email" id="defaultForm-email" class="form-control validate">
-                    <label data-error="wrong" data-success="right" for="defaultForm-email">Email</label>
+            <form:form action="account/login" method="post" modelAttribute="user">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold">Đăng nhập</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
+                <div class="modal-body mx-3">
+                    <div class="md-form mb-5">
+                        <i class="fas fa-envelope prefix grey-text"></i>
+                        <form:input path="username" type="text" id="defaultForm-email" class="form-control validate"/>
+                        <label data-error="wrong" data-success="right" for="defaultForm-email">Email</label>
+                    </div>
 
-                <div class="md-form mb-4">
-                    <i class="fas fa-lock prefix grey-text"></i>
-                    <input type="password" id="defaultForm-pass" class="form-control validate">
-                    <label data-error="wrong" data-success="right" for="defaultForm-pass">Mật khẩu</label>
+                    <div class="md-form mb-4">
+                        <i class="fas fa-lock prefix grey-text"></i>
+                        <form:input path="password" type="password" id="defaultForm-pass" class="form-control validate"/>
+                        <label data-error="wrong" data-success="right" for="defaultForm-pass">Mật khẩu</label>
+                    </div>
+
                 </div>
-
-            </div>
-            <div class="modal-header d-flex justify-content-center">
-                <button class="btn btn-primary btn-block">Login</button>
-            </div>
+                <div class="modal-header d-flex justify-content-center">
+                    <form:button  class="btn btn-primary btn-block">Login</form:button>
+                </div>
+            </form:form>
         </div>
     </div>
 </div>

@@ -13,7 +13,6 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 
-
     <style>
         /* carousel */
         /* Make the image fully responsive */
@@ -21,11 +20,9 @@
             width: 100%;
             height: 100%;
         }
-
         .img-movie {
             height: 400px;
         }
-
         .movie-item {
             margin-bottom: 50px;
         }
@@ -34,8 +31,6 @@
 </head>
 
 <body>
-
-
 
 <!-- content -->
 <div class="container">
