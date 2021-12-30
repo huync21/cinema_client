@@ -29,7 +29,7 @@ public class LoginController {
         ResponseEntity<JwtResponseDTO> jwtResponse
                 = restTemplate.exchange(apiLogin, HttpMethod.POST,httpEntity, JwtResponseDTO.class);
 
-        request.getSession().setAttribute("jwtResponse",jwtResponse.getBody());
+        request.getSession().setAttribute("jwtResponse",(JwtResponseDTO)jwtResponse.getBody());
         return "redirect:/";
     }
 

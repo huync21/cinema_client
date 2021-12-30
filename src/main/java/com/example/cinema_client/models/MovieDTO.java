@@ -18,7 +18,6 @@ public class MovieDTO {
     private LocalDate releaseDate;
     private int duration;
     private String trailerURL;
-    private String rated;
     private String language;
-
+    private String rated;
 }

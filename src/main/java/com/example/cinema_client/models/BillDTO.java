@@ -10,4 +10,5 @@ public class BillDTO {
     private int id;
     private LocalDate createdDate;
     private List<TicketDTO> listTickets;
+    private User user;
 }

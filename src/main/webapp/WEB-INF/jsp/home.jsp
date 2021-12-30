@@ -36,6 +36,7 @@
 <div class="container">
     <%--    navbar--%>
     <jsp:include page="header.jsp"/>
+
     <!-- carousel -->
     <br>
     <br>
@@ -98,7 +99,7 @@
                     <h4 class="card-title">${movie.name}</h4>
                     <p class="card-text">${movie.shortDescription}</p>
                     <a href="#" class="btn btn-outline-warning" style="margin-right:70px">Chi tiết</a>
-                    <a href="branch_selection.html" class="btn btn-outline-danger">Mua vé</a>
+                    <a href="branches?movieId=${movie.id}" class="btn btn-outline-danger">Mua vé</a>
                 </div>
             </div>
         </c:forEach>
@@ -106,9 +107,10 @@
 
 
     </div>
+        <!-- end of movie selections -->
 </div>
 </div>
-<!-- end of movie selections -->
+
 
 
 </body>
