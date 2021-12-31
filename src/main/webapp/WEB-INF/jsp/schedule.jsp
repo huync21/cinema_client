@@ -23,11 +23,12 @@
 
 <br><br><br>
 <div class="container">
-    <form action="">
+
+    <form action="room-selection" method="post">
         <h2>Chọn lịch xem phim</h2>
         <br>
         <p>Chọn ngày xem phim (yyyy-MM-dd)</p>
-        <select id="listDate" class="form-control form-control-lg" >
+        <select id="listDate" class="form-control form-control-lg" name="startDate" >
             <c:forEach items="${listDates}" var="date">
                 <option value="${date}">
                         ${date}
@@ -36,7 +37,7 @@
         </select>
         <br>
         <p>Chọn giờ xem phim (HH:mm)</p>
-        <select id="listTimes" class="form-control form-control-lg">
+        <select id="listTimes" class="form-control form-control-lg" name="startTime">
             <c:forEach items="${listStartTimes}" var="startTime">
                 <option value="${startTime}">
                         ${startTime}
@@ -44,7 +45,7 @@
             </c:forEach>
         </select>
         <br><br>
-        <a type="submit" href="room_selection.html" class="btn btn-outline-danger btn-block">Chọn</a>
+        <input type="submit" class="btn btn-outline-danger btn-block">
     </form>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

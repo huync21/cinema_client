@@ -17,12 +17,12 @@
 </head>
 <!-- nav bar -->
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-    <a class="navbar-brand" href="#">HUYCINEMA</a>
+    <a class="navbar-brand" href="/">HUYCINEMA</a>
 
     <div class="collapse navbar-collapse" id="navb">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="#">Trang chủ</a>
+                <a class="nav-link" href="/">Trang chủ</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Lịch sử mua vé</a>
