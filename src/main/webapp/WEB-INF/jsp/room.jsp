@@ -35,7 +35,8 @@
         <div class="card-body">
             <h4 class="card-title"> ${room.name} </h4>
             <p class="card-text">Sức chứa: ${room.capacity} người </p>
-            <a href="seat_selection.html" class="btn btn-outline-danger btn-block">Chọn</a>
+            <a href="seat-selection?movieId=${sessionScope.movieId}&branchId=${sessionScope.branchId}&startDate=${sessionScope.startDate}&startTime=${sessionScope.startTime}&roomId=${room.id}"
+               class="btn btn-outline-danger btn-block">Chọn</a>
         </div>
     </div>
     </c:forEach>
