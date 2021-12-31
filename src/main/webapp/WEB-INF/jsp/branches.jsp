@@ -47,7 +47,7 @@
                 <h4 class="card-title">${branch.name} </h4>
                 <p class="card-text">Địa Chỉ: ${branch.diaChi}</p>
                 <p class="card-text">SĐT: ${branch.phoneNo}</p>
-                <a href="schedule.html" class="btn btn-outline-danger btn-block">Chọn</a>
+                <a href="schedule?movieId=${sessionScope.movieId}&branchId=${branch.id}" class="btn btn-outline-danger btn-block">Chọn</a>
             </div>
         </div>
     </c:forEach>
