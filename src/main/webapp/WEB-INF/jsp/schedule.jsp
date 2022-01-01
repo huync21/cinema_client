@@ -48,6 +48,8 @@
         <input type="submit" class="btn btn-outline-danger btn-block">
     </form>
 </div>
+<br><br><br><br><br><br><br>
+<jsp:include page="footer.jsp"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
     function callAPI() {
@@ -75,7 +77,7 @@
         });
     });
 </script>
-<jsp:include page="footer.jsp"/>
+
 </body>
 
 </html>

@@ -54,6 +54,8 @@
 </div>
 
 <!-- end of movie selections -->
+<br>
+<br>
 <jsp:include page="footer.jsp"/>
 </body>
 

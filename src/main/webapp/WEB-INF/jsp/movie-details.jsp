@@ -94,6 +94,8 @@
     <br>
     <br>
 </div>
+<br>
+<br>
 <jsp:include page="footer.jsp"/>
 </body>
 
