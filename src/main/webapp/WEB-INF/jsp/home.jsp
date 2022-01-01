@@ -98,7 +98,7 @@
                 <div class="card-body">
                     <h4 class="card-title">${movie.name}</h4>
                     <p class="card-text">${movie.shortDescription}</p>
-                    <a href="#" class="btn btn-outline-warning" style="margin-right:70px">Chi tiết</a>
+                    <a href="movie-details?movieId=${movie.id}" class="btn btn-outline-warning" style="margin-right:70px">Chi tiết</a>
                     <a href="branches?movieId=${movie.id}" class="btn btn-outline-danger">Mua vé</a>
                 </div>
             </div>
@@ -112,7 +112,7 @@
 </div>
 
 
-
+<jsp:include page="footer.jsp"/>
 </body>
 
 </html>

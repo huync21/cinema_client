@@ -75,6 +75,8 @@
         <br>
         <a href="bill" class="btn btn-outline-danger btn-block">Thanh Toán</a>
 </div>
+
+<jsp:include page="footer.jsp"/>
 </body>
 
 </html>

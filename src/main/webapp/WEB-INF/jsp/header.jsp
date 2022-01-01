@@ -111,6 +111,7 @@
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
+            <form action="account/register" method="post">
             <div class="modal-header text-center">
                 <h4 class="modal-title w-100 font-weight-bold">Đăng ký</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -120,28 +121,28 @@
             <div class="modal-body mx-3">
                 <div class="md-form mb-5">
                     <i class="fas fa-user prefix grey-text"></i>
-                    <input type="text" id="orangeForm-name" class="form-control validate">
+                    <input name="fullname" type="text" id="orangeForm-name" class="form-control validate"/>
                     <label data-error="wrong" data-success="right" for="orangeForm-name">Họ tên</label>
                 </div>
                 <div class="md-form mb-5">
                     <i class="fas fa-envelope prefix grey-text"></i>
-                    <input type="email" id="orangeForm-email" class="form-control validate">
+                    <input name="username" type="text"  id="orangeForm-email" class="form-control validate"/>
                     <label data-error="wrong" data-success="right" for="orangeForm-email">Email</label>
                 </div>
 
                 <div class="md-form mb-4">
                     <i class="fas fa-lock prefix grey-text"></i>
-                    <input type="password" id="orangeForm-pass" class="form-control validate">
+                    <input name="password" type="password" id="orangeForm-pass" class="form-control validate"></input>
                     <label data-error="wrong" data-success="right" for="orangeForm-pass">Mật khẩu</label>
                 </div>
 
             </div>
             <div class="modal-footer d-flex justify-content-center">
-                <button class="btn btn-primary btn-block">Đăng ký</button>
+                <input type="submit" class="btn btn-primary btn-block" value="Đăng ký"></input>
             </div>
+            </form>
         </div>
     </div>
 </div>
-
 <!-- end of sign up modal -->
 </body>
