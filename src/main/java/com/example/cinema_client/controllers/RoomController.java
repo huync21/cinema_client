@@ -61,6 +61,7 @@ public class RoomController {
 
         model.addAttribute("listRooms",listRooms.getBody());
         model.addAttribute("user",new User());
+        session.removeAttribute("bookedError");
 ;        return "room";
     }
 }

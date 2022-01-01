@@ -58,7 +58,7 @@ public class SeatController {
         listRequestParam.put("movieId", movieId+"");
         listRequestParam.put("branchId",branchId+"");
         listRequestParam.put("startDate", LocalDate.parse(startDate).format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-        listRequestParam.put("startTime", LocalTime.parse(request.getParameter("startTime")).format(DateTimeFormatter.ofPattern("HH:mm")));
+        listRequestParam.put("startTime", LocalTime.parse(startTime).format(DateTimeFormatter.ofPattern("HH:mm")));
         listRequestParam.put("roomId",roomId+"");
         ResponseEntity<ScheduleDTO[]> listScheduleDTOResponse = restTemplate.exchange(urlTemplate,
                 HttpMethod.GET,entity,ScheduleDTO[].class,listRequestParam);

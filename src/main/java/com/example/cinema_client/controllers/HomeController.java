@@ -26,6 +26,7 @@ public class HomeController {
         MovieDTO[] movies = response.getBody();
         model.addAttribute("movies",movies);
         model.addAttribute("user",new User());
+
         return "home";
     }
 }

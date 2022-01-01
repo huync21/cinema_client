@@ -52,6 +52,9 @@
     <h2>Màn Hình</h2>
     <div class="screen"></div>
     <br><br><br>
+    <p style="color: red">
+        ${bookedError}
+    </p>
     <div class="container">
         <form action="bill" method="post">
             <table style="width:100%">
@@ -67,6 +70,7 @@
                     <th>8</th>
 
                 </tr>
+
                 <tr>
                     <th>A</th>
                     <c:forEach items="${listA}" var="seat">

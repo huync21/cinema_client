@@ -28,7 +28,6 @@
 
 <br><br><br>
 <div class="container">
-    <form action="">
         <h2>Thanh toán hóa đơn</h2>
         <br>
         <div style="display:flex">
@@ -74,8 +73,7 @@
             </div>
         </div>
         <br>
-        <a type="submit" href="/" class="btn btn-outline-danger btn-block">Thanh Toán</a>
-    </form>
+        <a href="bill" class="btn btn-outline-danger btn-block">Thanh Toán</a>
 </div>
 </body>
 

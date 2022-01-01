@@ -24,11 +24,22 @@
             <li class="nav-item">
                 <a class="nav-link" href="/">Trang chủ</a>
             </li>
+            <c:choose>
+                <c:when test="${sessionScope.jwtResponse eq null}">
+
+                </c:when>
+                <c:otherwise>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/tickets/history">Lịch sử mua vé</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Cá nhân</a>
+                    </li>
+                </c:otherwise>
+            </c:choose>
+
             <li class="nav-item">
-                <a class="nav-link" href="#">Lịch sử mua vé</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Cá nhân</a>
+                <a class="nav-link" href="/">Liên hệ</a>
             </li>
         </ul>
         <div class="form-inline my-2 my-lg-0">
