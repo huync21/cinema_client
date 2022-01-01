@@ -64,7 +64,8 @@ public class SeatController {
                 HttpMethod.GET,entity,ScheduleDTO[].class,listRequestParam);
 
         ScheduleDTO scheduleDTO =  listScheduleDTOResponse.getBody()[0];
-
+        //Lưu scheduleDTO lên session tí thanh toán còn hiện thông tin ra:
+        session.setAttribute("schedule",scheduleDTO);
 
         //Gọi api lấy ra những ghế ngồi của lịch đó
         String urlTemplate1 = UriComponentsBuilder.fromHttpUrl(API_GET_SEATS)

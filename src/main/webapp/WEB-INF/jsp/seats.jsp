@@ -53,8 +53,8 @@
     <div class="screen"></div>
     <br><br><br>
     <div class="container">
-        <table style="width:100%">
-            <form action="">
+        <form action="bill" method="post">
+            <table style="width:100%">
                 <tr>
                     <th></th>
                     <th>1</th>
@@ -72,10 +72,12 @@
                     <c:forEach items="${listA}" var="seat">
                         <c:choose>
                             <c:when test="${seat.isOccupied eq 1}">
-                                <th><input type="checkbox" class="largerCheckbox" name="${seat.name} value="${seat.name} checked disabled"></th>
+                                <th><input type="checkbox" class="largerCheckbox" name="seats" value="${seat.id}" checked disabled>
+                                </th>
                             </c:when>
                             <c:otherwise>
-                                <th><input type="checkbox" class="largerCheckbox" name="${seat.name} value="${seat.name}"></th>
+                                <th><input type="checkbox" class="largerCheckbox" name="seats" value="${seat.id}">
+                                </th>
                             </c:otherwise>
                         </c:choose>
 
@@ -89,10 +91,12 @@
                     <c:forEach items="${listB}" var="seat">
                         <c:choose>
                             <c:when test="${seat.isOccupied eq 1}">
-                                <th><input type="checkbox" class="largerCheckbox" name="${seat.name} value="${seat.name} checked disabled"></th>
+                                <th><input type="checkbox" class="largerCheckbox" name="seats" value="${seat.id}" checked disabled>
+                                </th>
                             </c:when>
                             <c:otherwise>
-                                <th><input type="checkbox" class="largerCheckbox" name="${seat.name} value="${seat.name}"></th>
+                                <th><input type="checkbox" class="largerCheckbox" name="seats" value="${seat.id}">
+                                </th>
                             </c:otherwise>
                         </c:choose>
 
@@ -104,10 +108,12 @@
                     <c:forEach items="${listC}" var="seat">
                         <c:choose>
                             <c:when test="${seat.isOccupied eq 1}">
-                                <th><input type="checkbox" class="largerCheckbox" name="${seat.name} value="${seat.name} checked disabled"></th>
+                                <th><input type="checkbox" class="largerCheckbox" name="seats" value="${seat.id}" checked disabled>
+                                </th>
                             </c:when>
                             <c:otherwise>
-                                <th><input type="checkbox" class="largerCheckbox" name="${seat.name} value="${seat.name}"></th>
+                                <th><input type="checkbox" class="largerCheckbox" name="seats" value="${seat.id}">
+                                </th>
                             </c:otherwise>
                         </c:choose>
 
@@ -118,10 +124,12 @@
                     <c:forEach items="${listD}" var="seat">
                         <c:choose>
                             <c:when test="${seat.isOccupied eq 1}">
-                                <th><input type="checkbox" class="largerCheckbox" name="${seat.name} value="${seat.name} checked disabled"></th>
+                                <th><input type="checkbox" class="largerCheckbox" name="seats" value="${seat.id}" checked disabled>
+                                </th>
                             </c:when>
                             <c:otherwise>
-                                <th><input type="checkbox" class="largerCheckbox" name="${seat.name} value="${seat.name}"></th>
+                                <th><input type="checkbox" class="largerCheckbox" name="seats" value="${seat.id}">
+                                </th>
                             </c:otherwise>
                         </c:choose>
 
@@ -133,21 +141,22 @@
                     <c:forEach items="${listE}" var="seat">
                         <c:choose>
                             <c:when test="${seat.isOccupied eq 1}">
-                                <th><input type="checkbox" class="largerCheckbox" name="${seat.name} value="${seat.name} checked disabled"></th>
+                                <th><input type="checkbox" class="largerCheckbox" name="seats" value="${seat.id}" checked disabled>
+                                </th>
                             </c:when>
                             <c:otherwise>
-                                <th><input type="checkbox" class="largerCheckbox" name="${seat.name} value="${seat.name}"></th>
+                                <th><input type="checkbox" class="largerCheckbox" name="seats" value="${seat.id}">
+                                </th>
                             </c:otherwise>
                         </c:choose>
 
                     </c:forEach>
-
                 </tr>
-            </form>
-        </table>
-        <br>
-        <br>
-        <a href="bill.html" class="btn btn-outline-danger btn-block">Tiếp Tục</a>
+            </table>
+            <br>
+            <br>
+            <input type="submit" class="btn btn-outline-danger btn-block" value="Tiếp Tục"></input>
+        </form>
     </div>
 </div>
 </body>
