@@ -89,7 +89,7 @@
             <h1>Trailer:</h1>
             <iframe width="560" height="315" src="${movie.trailerURL}"
                     title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allow="accelerometer; autoplay; clipboard-write; gyroscope; picture-in-picture"
                     allowfullscreen>
             </iframe>
         </div>
