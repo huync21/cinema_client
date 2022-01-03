@@ -33,7 +33,15 @@
     <div style="display:flex">
         <div style="margin-right:50px">
             <img src="${movie.smallImageURl}" alt="">
-            <a href="branches?movieId=${movie.id}" class="btn btn-danger btn-block">Mua Vé</a>
+
+            <c:choose>
+                <c:when test="${sessionScope.jwtResponse eq null}">
+                    <button  class="btn btn-danger btn-block btn-buy-ticket-not-signed-in">Mua vé</button>
+                </c:when>
+                <c:otherwise>
+                    <a href="branches?movieId=${movie.id}" class="btn btn-danger btn-block">Mua Vé</a>
+                </c:otherwise>
+            </c:choose>
         </div>
         <table>
             <tr>
@@ -58,7 +66,7 @@
             </tr>
             <tr>
                 <th><b>Thời Lượng:</b></th>
-                <th>${movie.duration}</th>
+                <th>${movie.duration} phút</th>
             </tr>
             <tr>
                 <th><b>Ngôn Ngữ:</b></th>
@@ -97,6 +105,23 @@
 <br>
 <br>
 <jsp:include page="footer.jsp"/>
+<c:choose>
+    <c:when test="${sessionScope.jwtResponse eq null}">
+        <script>
+            $(document).ready(function() {
+                $('.btn-buy-ticket-not-signed-in').on('click', function () {
+                    $('#modalLoginForm').modal('show');
+                })
+                // $('#close').on('click',function(){
+                //     $('#modalLoginForm').modal({ show: false});
+                // })
+            })
+        </script>
+    </c:when>
+    <c:otherwise>
+
+    </c:otherwise>
+</c:choose>
 </body>
 
 </html>

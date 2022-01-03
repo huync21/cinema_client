@@ -46,7 +46,8 @@
             <c:choose>
                 <c:when test="${sessionScope.jwtResponse eq null}">
                     <li class="nav-item">
-                        <a href="" class="btn btn-primary" data-toggle="modal" data-target="#modalLoginForm">Đăng nhập</a>
+                        <a href="" class="btn btn-primary" data-toggle="modal" data-target="#modalLoginForm">Đăng
+                            nhập</a>
                     </li>
                     <li class="nav-item">
                         <a href="" class="btn btn-info" data-toggle="modal" data-target="#modalRegisterForm">Đăng ký</a>
@@ -57,7 +58,7 @@
                         <a style="color: gold">${sessionScope.jwtResponse.name}</a>
                     </li>
                     <li class="nav-item">
-                        <a href="account/sign-out" class="btn btn-danger">Đăng xuất</a>
+                        <a href="/account/sign-out" class="btn btn-danger">Đăng xuất</a>
                     </li>
                 </c:otherwise>
             </c:choose>
@@ -72,31 +73,42 @@
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form:form action="account/login" method="post" modelAttribute="user">
+            <form action="/account/login" method="post">
                 <div class="modal-header text-center">
                     <h4 class="modal-title w-100 font-weight-bold">Đăng nhập</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
+
                 <div class="modal-body mx-3">
+                    <c:choose>
+                        <c:when test="${loginError eq null}">
+
+                        </c:when>
+                        <c:otherwise>
+                            <p style="color: red"><i>${loginError}</i></p>
+                            <br>
+                        </c:otherwise>
+                    </c:choose>
                     <div class="md-form mb-5">
-                        <i class="fas fa-envelope prefix grey-text"></i>
-                        <form:input path="username" type="text" id="defaultForm-email" class="form-control validate"/>
                         <label data-error="wrong" data-success="right" for="defaultForm-email">Email</label>
+                        <i class="fas fa-envelope prefix grey-text"></i>
+                        <input name="username" type="text" id="defaultForm-email" class="form-control validate" value="${un}"/>
                     </div>
 
                     <div class="md-form mb-4">
-                        <i class="fas fa-lock prefix grey-text"></i>
-                        <form:input path="password" type="password" id="defaultForm-pass" class="form-control validate"/>
                         <label data-error="wrong" data-success="right" for="defaultForm-pass">Mật khẩu</label>
+                        <i class="fas fa-lock prefix grey-text"></i>
+                        <input name="password" type="password" id="defaultForm-pass" class="form-control validate" value="${pw}"/>
+
                     </div>
 
                 </div>
                 <div class="modal-header d-flex justify-content-center">
-                    <form:button  class="btn btn-primary btn-block">Login</form:button>
+                    <input type="submit" class="btn btn-primary btn-block" value="Đăng Nhập"></input>
                 </div>
-            </form:form>
+            </form>
         </div>
     </div>
 </div>
@@ -111,36 +123,43 @@
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form action="account/register" method="post">
-            <div class="modal-header text-center">
-                <h4 class="modal-title w-100 font-weight-bold">Đăng ký</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body mx-3">
-                <div class="md-form mb-5">
-                    <i class="fas fa-user prefix grey-text"></i>
-                    <input name="fullname" type="text" id="orangeForm-name" class="form-control validate"/>
-                    <label data-error="wrong" data-success="right" for="orangeForm-name">Họ tên</label>
+            <form:form action="/account/register" method="post" modelAttribute="user">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold">Đăng ký</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                <div class="md-form mb-5">
-                    <i class="fas fa-envelope prefix grey-text"></i>
-                    <input name="username" type="text"  id="orangeForm-email" class="form-control validate"/>
-                    <label data-error="wrong" data-success="right" for="orangeForm-email">Email</label>
-                </div>
+                <div class="modal-body mx-3">
+                    <div class="md-form mb-5">
+                        <p><i style="color: red">${registerError}</i></p>
+                        <label data-error="wrong" data-success="right" for="orangeForm-name">Họ tên</label>
+                        <i class="fas fa-user prefix grey-text"></i>
+                        <form:input path="fullName" name="fullname" type="text" id="orangeForm-name"
+                                    class="form-control validate" value="${fn}"/>
+                        <form:errors path="fullName" cssClass="error" cssStyle="color: red"/>
+                    </div>
+                    <div class="md-form mb-5">
+                        <label data-error="wrong" data-success="right" for="orangeForm-email">Email</label>
+                        <i class="fas fa-envelope prefix grey-text"></i>
+                        <form:input path="username" name="username" type="text" id="orangeForm-email"
+                                    class="form-control validate" value="${un}"/>
+                        <form:errors path="username" cssClass="error" cssStyle="color: red"/>
+                    </div>
 
-                <div class="md-form mb-4">
-                    <i class="fas fa-lock prefix grey-text"></i>
-                    <input name="password" type="password" id="orangeForm-pass" class="form-control validate"></input>
-                    <label data-error="wrong" data-success="right" for="orangeForm-pass">Mật khẩu</label>
-                </div>
+                    <div class="md-form mb-4">
+                        <label data-error="wrong" data-success="right" for="orangeForm-pass">Mật khẩu</label>
+                        <i class="fas fa-lock prefix grey-text"></i>
+                        <form:input path="password" name="password" type="password" id="orangeForm-pass"
+                                    class="form-control validate" value="${pw}"></form:input>
+                        <form:errors path="password" cssClass="error" cssStyle="color: red"/>
+                    </div>
 
-            </div>
-            <div class="modal-footer d-flex justify-content-center">
-                <input type="submit" class="btn btn-primary btn-block" value="Đăng ký"></input>
-            </div>
-            </form>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <form:button class="btn btn-primary btn-block">Đăng ký</form:button>
+                </div>
+            </form:form>
         </div>
     </div>
 </div>

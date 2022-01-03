@@ -98,8 +98,18 @@
                 <div class="card-body">
                     <h4 class="card-title">${movie.name}</h4>
                     <p class="card-text">${movie.shortDescription}</p>
-                    <a href="movie-details?movieId=${movie.id}" class="btn btn-outline-warning" style="margin-right:70px">Chi tiết</a>
-                    <a href="branches?movieId=${movie.id}" class="btn btn-outline-danger">Mua vé</a>
+                    <a href="/movie-details?movieId=${movie.id}" class="btn btn-outline-warning" style="margin-right:70px">Chi tiết</a>
+
+                        <%--Nếu chưa đăng nhập mà đã click vào nút mua vé thì trả về trang có nút có class btn-buy-ticket-not-signed-in để
+                        toggle cái form đăng nhập--%>
+                    <c:choose>
+                        <c:when test="${sessionScope.jwtResponse eq null}">
+                            <button  class="btn btn-outline-danger btn-buy-ticket-not-signed-in">Mua vé</button>
+                        </c:when>
+                        <c:otherwise>
+                            <a href="/branches?movieId=${movie.id}" class="btn btn-outline-danger" >Mua vé</a>
+                        </c:otherwise>
+                    </c:choose>
                 </div>
             </div>
         </c:forEach>
@@ -110,6 +120,59 @@
         <!-- end of movie selections -->
 </div>
 </div>
+
+<%--Nếu chưa đăng nhập mà đã click vào nút mua vé thì trả về trang có function toggle cái form đăng nhập--%>
+<c:choose>
+    <c:when test="${sessionScope.jwtResponse eq null}">
+        <script>
+            $(document).ready(function() {
+                $('.btn-buy-ticket-not-signed-in').on('click', function () {
+                    $('#modalLoginForm').modal('show');
+                })
+                // $('.close').on('click',function(){
+                //     $('#modalLoginForm').modal({ show: false});
+                //     // clear input fields
+                //     $('#defaultForm-email').html("")
+                //     $('#defaultForm-pass').html("")
+                //     $('#orangeForm-name').html("")
+                //     $('#orangeForm-email').html("")
+                //     $('#orangeForm-password').html("")
+                // })
+            })
+        </script>
+    </c:when>
+    <c:otherwise>
+
+    </c:otherwise>
+</c:choose>
+
+<%--Nếu có lỗi đăng ký thì hiện cái form modal đăng ký ra--%>
+<c:choose>
+    <c:when test="${hasErrors eq null}">
+
+    </c:when>
+    <c:otherwise>
+        <script>
+                $(window).on('load',function() {
+                    $('#modalRegisterForm').modal('show');
+                });
+        </script>
+    </c:otherwise>
+</c:choose>
+
+<%-- Nếu có lỗi đăng nhập thì hiện form modal đăng nhập ra--%>
+<c:choose>
+    <c:when test="${hasLoginErrors eq null}">
+
+    </c:when>
+    <c:otherwise>
+        <script>
+            $(window).on('load',function() {
+                $('#modalLoginForm').modal('show');
+            });
+        </script>
+    </c:otherwise>
+</c:choose>
 
 <br>
 <br>
