@@ -1,5 +1,6 @@
 package com.example.cinema_client.controllers;
 
+import com.example.cinema_client.constants.Api;
 import com.example.cinema_client.models.BookingRequestDTO;
 import com.example.cinema_client.models.JwtResponseDTO;
 import com.example.cinema_client.models.ScheduleDTO;
@@ -31,7 +32,7 @@ public class BillController {
     @Autowired
     private RestTemplate restTemplate;
 
-    public static String API_CREATE_BILL= "http://localhost:8080/api/bills/create-new-bill";
+    public static String API_CREATE_BILL= Api.baseURL+"/api/bills/create-new-bill";
 
     @PostMapping
     public String displayBillPage(HttpServletRequest request, Model model){

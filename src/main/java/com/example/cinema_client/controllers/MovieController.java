@@ -1,5 +1,6 @@
 package com.example.cinema_client.controllers;
 
+import com.example.cinema_client.constants.Api;
 import com.example.cinema_client.models.MovieDTO;
 import com.example.cinema_client.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ public class MovieController {
     @Autowired
     private RestTemplate restTemplate;
 
-    public static String API_GET_MOVIE_DETAILS = "http://localhost:8080/api/movies/details";
+    public static String API_GET_MOVIE_DETAILS = Api.baseURL+"/api/movies/details";
     @GetMapping
     public String displayMovieDetailPage(@RequestParam Integer movieId, Model model){
         // Truyền tham số movieId vào query string rồi gửi request

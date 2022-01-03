@@ -1,5 +1,6 @@
 package com.example.cinema_client.controllers;
 
+import com.example.cinema_client.constants.Api;
 import com.example.cinema_client.models.JwtResponseDTO;
 import com.example.cinema_client.models.User;
 import org.apache.tomcat.jni.Local;
@@ -28,7 +29,7 @@ public class ScheduleController {
     @Autowired
     private RestTemplate restTemplate;
 
-    public static String API_GET_START_TIMES = "http://localhost:8080/api/schedule/start-times";
+    public static String API_GET_START_TIMES = Api.baseURL+"/api/schedule/start-times";
 
     @GetMapping
     public String displaySchedulePage(@RequestParam Integer movieId,@RequestParam Integer branchId, Model model, HttpServletRequest request){

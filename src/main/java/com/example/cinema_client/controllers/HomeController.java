@@ -1,5 +1,6 @@
 package com.example.cinema_client.controllers;
 
+import com.example.cinema_client.constants.Api;
 import com.example.cinema_client.models.MovieDTO;
 import com.example.cinema_client.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +25,9 @@ public class HomeController {
     @Autowired
     private RestTemplate restTemplate;
 
-    public static String apiGetShowingMovies = "http://localhost:8080/api/movies/showing";
+    public static String apiGetShowingMovies = Api.baseURL+"/api/movies/showing";
 
-    public static String API_GET_SHOWING_MOVIES_BY_NAME = "http://localhost:8080/api/movies/showing/search";
+    public static String API_GET_SHOWING_MOVIES_BY_NAME = Api.baseURL+"/api/movies/showing/search";
 
     @GetMapping
     public String displayHomePage(Model model){

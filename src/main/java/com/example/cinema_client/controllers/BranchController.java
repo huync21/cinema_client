@@ -1,5 +1,6 @@
 package com.example.cinema_client.controllers;
 
+import com.example.cinema_client.constants.Api;
 import com.example.cinema_client.models.BranchDTO;
 import com.example.cinema_client.models.JwtResponseDTO;
 import com.example.cinema_client.models.User;
@@ -27,7 +28,7 @@ public class BranchController {
     @Autowired
     private RestTemplate restTemplate;
 
-    public static String apiGetBranches = "http://localhost:8080/api/branches";
+    public static String apiGetBranches = Api.baseURL+"/api/branches";
 
     @GetMapping
     public String displayBranchesPage(@RequestParam Integer movieId, Model model, HttpServletRequest request){

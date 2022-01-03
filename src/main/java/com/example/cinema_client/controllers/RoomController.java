@@ -1,5 +1,6 @@
 package com.example.cinema_client.controllers;
 
+import com.example.cinema_client.constants.Api;
 import com.example.cinema_client.models.JwtResponseDTO;
 import com.example.cinema_client.models.RoomDTO;
 import com.example.cinema_client.models.User;
@@ -28,7 +29,7 @@ public class RoomController {
     @Autowired
     private RestTemplate restTemplate;
 
-    public static String API_GET_ROOMS="http://localhost:8080/api/rooms";
+    public static String API_GET_ROOMS= Api.baseURL+"/api/rooms";
 
     @PostMapping
     public String displayRoomSelectionPage(HttpServletRequest request, Model model){

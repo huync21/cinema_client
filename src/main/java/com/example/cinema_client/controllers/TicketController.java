@@ -1,5 +1,6 @@
 package com.example.cinema_client.controllers;
 
+import com.example.cinema_client.constants.Api;
 import com.example.cinema_client.models.JwtResponseDTO;
 import com.example.cinema_client.models.TicketDTO;
 import com.example.cinema_client.models.User;
@@ -23,7 +24,7 @@ public class TicketController {
     @Autowired
     private RestTemplate restTemplate;
 
-    public static String API_GET_TICKETS = "http://localhost:8080/api/tickets";
+    public static String API_GET_TICKETS = Api.baseURL+"/api/tickets";
     @GetMapping("/history")
     public String displayHistoryPage(Model model, HttpServletRequest request){
         HttpSession session = request.getSession();

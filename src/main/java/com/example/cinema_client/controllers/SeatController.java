@@ -1,5 +1,6 @@
 package com.example.cinema_client.controllers;
 
+import com.example.cinema_client.constants.Api;
 import com.example.cinema_client.models.JwtResponseDTO;
 import com.example.cinema_client.models.ScheduleDTO;
 import com.example.cinema_client.models.SeatDTO;
@@ -28,8 +29,8 @@ public class SeatController {
     @Autowired
     private RestTemplate restTemplate;
 
-    public static String API_GET_SCHEDULE="http://localhost:8080/api/schedule";
-    public static String API_GET_SEATS="http://localhost:8080/api/seats";
+    public static String API_GET_SCHEDULE=Api.baseURL+"/api/schedule";
+    public static String API_GET_SEATS= Api.baseURL+"/api/seats";
 
     @GetMapping
     public String displaySeatSelectionPage(@RequestParam Integer movieId, @RequestParam Integer branchId, @RequestParam String startDate,

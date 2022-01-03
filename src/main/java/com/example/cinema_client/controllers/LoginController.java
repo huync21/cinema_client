@@ -1,5 +1,6 @@
 package com.example.cinema_client.controllers;
 
+import com.example.cinema_client.constants.Api;
 import com.example.cinema_client.models.JwtResponseDTO;
 import com.example.cinema_client.models.MovieDTO;
 import com.example.cinema_client.models.Role;
@@ -27,8 +28,8 @@ public class LoginController {
     @Autowired
     private RestTemplate restTemplate;
 
-    public static String apiLogin = "http://localhost:8080/login";
-    public static String API_REGISTER = "http://localhost:8080/register";
+    public static String apiLogin = Api.baseURL+"/login";
+    public static String API_REGISTER = Api.baseURL+"/register";
 
     @PostMapping("/login")
     public String login(Model model, HttpServletRequest request) {
