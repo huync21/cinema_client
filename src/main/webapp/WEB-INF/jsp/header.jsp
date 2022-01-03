@@ -13,7 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
 </head>
 <!-- nav bar -->
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
@@ -94,21 +94,27 @@
                     <div class="md-form mb-5">
                         <label data-error="wrong" data-success="right" for="defaultForm-email">Email</label>
                         <i class="fas fa-envelope prefix grey-text"></i>
-                        <input name="username" type="text" id="defaultForm-email" class="form-control validate" value="${un}"/>
+                        <input name="username" type="text" id="defaultForm-email" class="form-control validate"
+                               value="${un}"/>
                     </div>
 
                     <div class="md-form mb-4">
                         <label data-error="wrong" data-success="right" for="defaultForm-pass">Mật khẩu</label>
                         <i class="fas fa-lock prefix grey-text"></i>
-                        <input name="password" type="password" id="defaultForm-pass" class="form-control validate" value="${pw}"/>
-
+                        <input name="password" type="password" id="defaultForm-pass" class="form-control validate"
+                               value="${pw}"/>
                     </div>
-
                 </div>
                 <div class="modal-header d-flex justify-content-center">
-                    <input type="submit" class="btn btn-primary btn-block" value="Đăng Nhập"></input>
+                    <button type="submit" class="btn btn-primary btn-block" >Đăng Nhập</button>
                 </div>
             </form>
+            <div class=" d-flex justify-content-center">
+                Chưa có tải khoản?
+            </div>
+            <div class="modal-header d-flex justify-content-center">
+                <button id="btn-register" class="btn btn-info btn-block">Đăng Ký</button>
+            </div>
         </div>
     </div>
 </div>
@@ -164,4 +170,12 @@
     </div>
 </div>
 <!-- end of sign up modal -->
+
+<script>
+    $("#btn-register").on('click', function () {
+        $("#modalLoginForm").modal("hide")
+        $(".modal-backdrop").css("display","none")
+        $("#modalRegisterForm").modal("show")
+    })
+</script>
 </body>

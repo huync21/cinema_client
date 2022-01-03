@@ -33,7 +33,8 @@
     <div style="display:flex">
         <div style="margin-right:50px">
             <img src="${movie.smallImageURl}" alt="">
-
+            <%--Nếu chưa đăng nhập mà đã click vào nút mua vé thì trả về trang có nút có class btn-buy-ticket-not-signed-in để
+                        toggle cái form đăng nhập--%>
             <c:choose>
                 <c:when test="${sessionScope.jwtResponse eq null}">
                     <button  class="btn btn-danger btn-block btn-buy-ticket-not-signed-in">Mua vé</button>
@@ -105,6 +106,9 @@
 <br>
 <br>
 <jsp:include page="footer.jsp"/>
+
+<%--Nếu chưa đăng nhập mà đã click vào nút mua vé thì trả về trang có function để
+toggle cái form đăng nhập--%>
 <c:choose>
     <c:when test="${sessionScope.jwtResponse eq null}">
         <script>

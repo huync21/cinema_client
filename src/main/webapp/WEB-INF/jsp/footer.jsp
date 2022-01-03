@@ -89,7 +89,7 @@
                 <div class="col-xs-12 col-sm-6 col-md-4">
                     <div class="widget subscribe no-box">
                         <h5 class="widget-title">HUYCINEMA<span></span></h5>
-                        <p>Cinema Branches Managment Systems By Nguyen Cong Huy PTIT <3 </p>
+                        <p>Cinema Tickets Booking Website By Nguyen Cong Huy PTIT <3 </p>
                     </div>
                 </div>
 
