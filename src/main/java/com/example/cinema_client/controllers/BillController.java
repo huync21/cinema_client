@@ -31,7 +31,6 @@ import java.util.stream.Collectors;
 public class BillController {
     @Autowired
     private RestTemplate restTemplate;
-
     public static String API_CREATE_BILL= Api.baseURL+"/api/bills/create-new-bill";
 
     @PostMapping
