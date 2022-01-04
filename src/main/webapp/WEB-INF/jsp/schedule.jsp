@@ -55,7 +55,7 @@
     function callAPI() {
         console.log("da goi duoc api!")
         $.ajax({
-            url: "http://localhost:8080/api/schedule/start-times?movieId=${sessionScope.movieId}&branchId=${sessionScope.branchId}&startDate=" + $("#listDate").find(":selected").text().trim(),
+            url: "https://cinema-be.herokuapp.com/api/schedule/start-times?movieId=${sessionScope.movieId}&branchId=${sessionScope.branchId}&startDate=" + $("#listDate").find(":selected").text().trim(),
             type: 'GET',
             headers: {"Authorization": "Bearer " +'${sessionScope.jwtResponse.accessToken}'},
             success: function (data) {
